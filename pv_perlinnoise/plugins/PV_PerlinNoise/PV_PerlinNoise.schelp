@@ -1,0 +1,47 @@
+class:: PV_PerlinNoise
+summary:: A Perlin noise algorithm based noise generator plugin
+related:: Classes/FFT, Classes/IFFT
+categories:: UGens>FFT
+
+description::
+A Perlin noise algorithm based noise generator plugin
+
+
+classmethods::
+
+method::new
+
+argument::buffer
+A FFT analyzed buffer. (It's phase is used)
+
+argument::magScale
+Magnitudes are scaled by this.
+
+argument::stepScale
+A scale factor of step size of 2D perlin noise.
+
+argument::octave
+A octave factor of 2D perlin noise.
+
+argument::persistence
+A persistence factor of 2D perlin noise.
+
+argument::seed
+A seed value of 2D perlin noise. Just like a random seed.
+
+examples::
+
+code::
+
+({
+    var in, chain;
+    in = WhiteNoise.ar(0.2);
+    chain = FFT(LocalBuf(256), in);
+    chain = PV_PerlinNoise.new(chain, 10.0, 0.01, 2, 0.9, 2);
+    IFFT(chain)!2;
+}.play;
+)
+
+
+
+::
