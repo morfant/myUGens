@@ -1,0 +1,26 @@
+class:: Bezier
+summary:: Bezier shape signal generator
+related:: TODO
+categories:: UGens>TODO
+
+description::
+
+Bezier shape signal generator
+
+
+classmethods::
+
+method::ar, kr
+
+argument::TODO
+
+argument::TODO
+
+
+examples::
+
+code::
+
+{ Bezier.ar(/* TODO */) }.play
+
+::
