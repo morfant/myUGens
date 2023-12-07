@@ -14,9 +14,10 @@ namespace Bezier {
 class Bezier : public SCUnit {
 public:
     Bezier();
-    void makeCurveTable();
-    Vector2* equidistantPoints(int howMany);
-    void makeCurve(Vector2 cp);
+    void makeCurveTable(int resolution);
+//    Vector2* equidistantPoints(int howMany);
+    void equidistantPoints(int howMany);
+//    void makeCurve(Vector2 cp);
 //    Vector2 makeCurve(float amt);
     
     Vector2 pointAtParameter(float t);
@@ -32,16 +33,23 @@ private:
     // Member variables
     Vector2 startPoint, endPoint;
     Vector2 controlPoint;
-    float* mCurveX = nullptr;
+//    float* mCurveX = nullptr;
     float* mCurveY = nullptr;
     float* mArcLengths = nullptr;
     
-    int res, mCount = 0;
+    const int RESOLUTION = 2048;
+    
+    float RES_OVER_SR, HALF_RES;
+    float curIdxPhase = 0;
+    int mCount = 0;
+    float mCtrlX = 0.f;
+    float mFreq = 100.0;
+    float freq = 0.0;
     float ctrlX, ctrlY;
     float arcLength = 0;
     float curveLength = 0;
     
-    Vector2* mEquiDistPoints;
+//    Vector2* mEquiDistPoints;
 };
 
 } // namespace Bezier

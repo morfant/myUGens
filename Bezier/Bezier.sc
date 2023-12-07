@@ -1,7 +1,7 @@
 Bezier : UGen {
-	*ar { |res = 1024, ctrlX = 512, ctrlY = 0.5|
+	*ar { |freq = 440.0, ctrlX = 0.5, mul = 1.0, add = 0.0|
 		/* TODO */
-		^this.multiNew('audio', res, ctrlX, ctrlY);
+		^this.multiNew('audio', freq, ctrlX).madd(mul, add);
 	}
     
 	checkInputs {
